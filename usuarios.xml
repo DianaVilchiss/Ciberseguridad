@@ -1,0 +1,6 @@
+<usuarios>
+ <usuario>
+  <nombre>admin</nombre>
+  <password>1234</password>
+ </usuario>
+</usuarios>
