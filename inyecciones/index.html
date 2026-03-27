@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Laboratorio de Inyecciones</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        margin: 0;
+        padding: 0;
+        color: white;
+      }
+
+      header {
+        text-align: center;
+        padding: 40px;
+      }
+
+      header h1 {
+        font-size: 40px;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        padding: 40px;
+      }
+
+      .card {
+        background: #1e293b;
+        border-radius: 10px;
+        padding: 30px;
+        text-align: center;
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+      }
+
+      .card h2 {
+        margin-bottom: 15px;
+      }
+
+      .card p {
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+
+      .card a {
+        text-decoration: none;
+        background: #3b82f6;
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: white;
+      }
+
+      .card a:hover {
+        background: #2563eb;
+      }
+
+      /* caja de payload */
+
+      .payload {
+        background: #020617;
+        border-radius: 6px;
+        padding: 10px;
+        margin-bottom: 15px;
+        font-family: monospace;
+        font-size: 13px;
+      }
+
+      /* texto payload */
+
+      .payload code {
+        color: #22c55e;
+        word-break: break-all;
+      }
+
+      /* botón copiar */
+
+      .copyBtn {
+        margin-top: 8px;
+        background: #ef4444;
+        border: none;
+        padding: 6px 12px;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .copyBtn:hover {
+        background: #dc2626;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Tipos de Inyecciones</h1>
+      <p>Simulación de ataques de inyección</p>
+    </header>
+
+    <div class="container">
+      <!-- SQL -->
+
+      <div class="card">
+        <h2>SQL Injection</h2>
+        <p>Ataque contra bases de datos relacionales</p>
+
+        <div class="payload">
+          <code id="sqlPayload">' OR '1'='1</code><br />
+        </div>
+
+        <a href="/sql">Probar</a>
+      </div>
+
+      <!-- NoSQL -->
+
+      <div class="card">
+        <h2>NoSQL Injection</h2>
+        <p>Manipulación de consultas NoSQL</p>
+
+        <div class="payload">
+          <code id="nosqlPayload">{"$ne": null}</code><br />
+        </div>
+
+        <a href="/nosql">Probar</a>
+      </div>
+
+      <!-- LDAP -->
+
+      <div class="card">
+        <h2>LDAP Injection</h2>
+        <p>Alteración de consultas LDAP</p>
+
+        <div class="payload"><code id="ldapPayload">*)(uid=*</code><br /></div>
+
+        <a href="/ldap">Probar</a>
+      </div>
+
+      <!-- XPath -->
+
+      <div class="card">
+        <h2>XPath Injection</h2>
+        <p>Ataque a consultas XML</p>
+
+        <div class="payload">
+          <code id="xpathPayload">' or '1'='1</code><br />
+        </div>
+
+        <a href="/xpath">Probar</a>
+      </div>
+
+      <!-- GraphQL -->
+
+      <div class="card">
+        <h2>GraphQL Injection</h2>
+        <p>Manipulación de consultas GraphQL</p>
+
+        <div class="payload">
+          <code id="graphqlPayload">admin") { users { id password } } #</code
+          ><br />
+        </div>
+
+        <a href="/graphql">Probar</a>
+      </div>
+    </div>
+
+    <script>
+      function copiar(id) {
+        const texto = document.getElementById(id).innerText;
+
+        navigator.clipboard.writeText(texto);
+
+        alert("Payload copiado al portapapeles");
+      }
+    </script>
+  </body>
+</html>
