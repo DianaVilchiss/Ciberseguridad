@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      }
+
+      .container {
+        background: #1e293b;
+        padding: 50px;
+        border-radius: 12px;
+        text-align: center;
+        color: white;
+      }
+
+      .ok {
+        color: #22c55e;
+      }
+      .error {
+        color: #ef4444;
+      }
+
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #3b82f6;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="{{ tipo }}">{{ icono }}</h1>
+
+      <h2>{{ titulo }}</h2>
+
+      <p>{{ mensaje }}</p>
+
+      <a href="/">Volver</a>
+    </div>
+  </body>
+</html>
